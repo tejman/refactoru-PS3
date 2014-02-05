@@ -1,10 +1,10 @@
 
 var palindrome = function(word) {
-  word = word.split(" ");
-  word = word.join("");
+  var newWord = word.split(" ");
+  newWord = newWord.join("");
   
-  var forwardArr = word.split("");
-  var reverseArr = word.split("").reverse();
+  var forwardArr = newWord.split("");
+  var reverseArr = newWord.split("").reverse();
   
   if(forwardArr.join("")===reverseArr.join("")){
     return true;
@@ -17,8 +17,8 @@ var palindrome = function(word) {
 var dashInsert = function(num) {
   var numArray = num.toString().split("");
   var newNum = "";
-  for(var i=0; i<numArray.length; i++){
-    if ((+numArray[i]%2===0)||(i ? +numArray[i-1]%2===0 : true)) {
+  for(var i=1; i<numArray.length; i++){
+    if ((+numArray[i]%2===0)||(+numArray[i-1]%2===0)) {
       newNum = newNum + numArray[i];
     }
     else{
@@ -40,7 +40,7 @@ var ceasarCipher = function(string, shift) {
         newString += 
           String.fromCharCode(code).toUpperCase()===string[i] ? 
             String.fromCharCode(code+shift).toUpperCase() : 
-            String.fromCharCode(code+shift).toUpperCase();
+            String.fromCharCode(code+shift);
       }
       else {
         newString += 
